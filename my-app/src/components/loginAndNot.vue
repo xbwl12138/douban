@@ -6,11 +6,11 @@
                 <p>请先登录</p>
             </div>
             <div class="img-right">
-                <img src="../../static/footer.png">
-                <img src="../../static/footer.png">
+                <img src="../../static/4.svg">
+                <img src="../../static/5.svg">
             </div>
         </div>
-        <div class="login-box">
+        <!-- <div class="login-box">
             <div class="login-img">
                 <img src="../../static/no-login.jpg">
                 <p>欢迎您：王兵强</p>
@@ -19,7 +19,7 @@
                 <img src="../../static/footer.png">
                 <img src="../../static/footer.png">
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 <script>
@@ -65,11 +65,12 @@ export default {
     }
     .img-right{
         float:right;
-        margin-top:.01rem;
+        margin-top:.08rem;
+        margin-right:.14rem;
     }
     .img-right img{
-        width:.4rem;
-        height:.4rem;
+        width:.3rem;
+        height:.3rem;
         margin-right:.2rem;
     }
 </style>>

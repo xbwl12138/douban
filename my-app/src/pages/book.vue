@@ -3,7 +3,12 @@
         <div class="top-box">
             <top-nav></top-nav>
         </div>
-        <ban :arr="arr"></ban>
+        <ban :v="arr[0]"></ban>
+        <movie-ban :arr="bookArra"></movie-ban>
+        <ban :v="arr[1]"></ban>
+        <movie-ban :arr="bookArrb"></movie-ban>
+        <ban :v="arr[2]"></ban>
+
         <div class="dou-zhi">
             <span>
                 <img src="../../static/1.jpg">
@@ -16,7 +21,9 @@
                 <p>改变世界的万物图典，3000幅图里的发明与冒险</p>
             </span>
         </div>
-        <ban :arr="arrb"></ban>
+        <movie-ban :arr="bookArrc"></movie-ban>
+
+        <ban :v="arr[3]"></ban>
         <banb :arr="arrc"></banb>   
         <class-list></class-list>
         <foot></foot>
@@ -28,21 +35,53 @@ import ban from '../components/ban'
 import classList from '../components/classList'
 import foot from '../components/foot'
 import banb from '../components/banb'
+import movieBan from '../components/movieBan'
 
 export default {
     components:{
         topNav,
         ban,
         banb,
+        movieBan,
         classList,
         foot
     },
     data(){
         return {
-            arr:["最受关注图书｜虚构类","最受关注图书｜非虚构类","豆瓣纸书"],
-            arrb:["发现好书"],
-            arrc:["图书入选IMDB250和豆瓣电影250的电影","同时入选影250的电影","350和豆瓣电影250的电影","4同时入选IMDB250和豆瓣电影250的电影","","5同时入选IMDB250和豆瓣电影250的电影","6同时入选IMDB250和豆瓣电影250的电影","7同时入选IMDB250和豆瓣电影250的电影","8同时入选IMDB250和豆瓣电影250的电影","",],
+            bookArra:[],
+            bookArrb:[],
+            bookArrc:[],
+            arr:["最受关注图书｜虚构类","最受关注图书｜非虚构类","豆瓣纸书","发现好书"],
+            arrc:[],
         }
+    },
+    created () {
+        this.axios({
+            method:"get",
+            url:"/books"
+        }).then((data)=>{
+            data.data.books.filter((v,i)=>{
+                if(i<8){
+                    this.bookArra.push(v);
+                }else if(i>7 && i<15){
+                    this.bookArrb.push(v);
+                }else if(i>14 && i<25){
+                    this.bookArrc.push(v);
+                }
+            })
+        },(err)=>{
+            console.log(err)
+        })
+
+        this.axios({
+            method:"get",
+            url:"/booknav"
+        }).then((data)=>{
+                console.log(data.data.goodBook)
+            this.arrc = data.data.goodBook
+        },(err)=>{
+            console.log(err)
+        })
     }
 }
 </script>

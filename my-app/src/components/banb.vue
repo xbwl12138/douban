@@ -1,8 +1,8 @@
 <template>
     <div class="banb-box">
         <ul>
-            <li v-for="(v,i) in arr" :key="i" :style="colorArr[i]">
-                <a :style="txtArr[i]" href="#">{{v}}</a>
+            <li v-for="(v,i) in arr" :key="i" :style="v.line?'display: block;border:none;':''">
+                <a :style="v.line?'height:0;':''" :href="v.href"><span :style="{color:v.color}">{{v.title}}</span></a>
             </li>
         </ul>
     </div>
@@ -11,8 +11,6 @@
 export default {
     data(){
         return {
-            
-            bool:"",
             colorArr:[],
             txtArr:[],
         }
@@ -22,37 +20,7 @@ export default {
             type:Array,
             required:true
         }
-    },
-    methods: {
-        RandomColor() {
-				let r, g, b;
-				r = Math.floor(Math.random() * 256);
-				g = Math.floor(Math.random() * 256);
-				b = Math.floor(Math.random() * 256);
-                return "border-color:rgb(" +r + ',' +g+ ',' +b+ ")";
-        },
-        RandomColorb() {
-				let r, g, b;
-				r = Math.floor(Math.random() * 256);
-				g = Math.floor(Math.random() * 256);
-				b = Math.floor(Math.random() * 256);
-                return "color:rgb(" +r + ',' +g+ ',' +b+ ")";
-        }
-    },
-    created () {
-        let len = this.arr.length;
-        let colorArr = [];
-        let txtArr = [];
-        for(let i=0;i<len;i++){
-            colorArr.push(this.RandomColor());
-            txtArr.push(this.RandomColorb());
-        }
-        this.colorArr = colorArr;
-        this.txtArr = txtArr;
-
     }
-    
-
 }
 </script>
 <style scoped>
@@ -65,21 +33,9 @@ export default {
     }
     .banb-box ul li{
         display: inline-block;
-        border: 1px solid #eee;
+        border: 1px solid #ffac2d;
         margin:0 .1rem .1rem;
         border-radius: .08rem;
-    }
-    .banb-box li:nth-child(5n){
-        display: block;
-        border:none;
-        padding:0;
-    }
-    .banb-box li:nth-child(5n) a{
-        display: block;
-        border:none;
-        padding:0;
-        width:0;
-        height:0;
     }
     .banb-box a{
         height: .5rem;

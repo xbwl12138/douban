@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="ban-box" v-for="(v,i) in arr" :key="i">
+        <div class="ban-box">
             <h2>{{v}}</h2>
             <p>更多</p>
         </div>
@@ -9,8 +9,8 @@
 <script>
 export default {
     props:{
-        arr:{
-            type:Array,
+        v:{
+            type:String,
             required:true
         }
     }
