@@ -8,6 +8,7 @@ import Movie from '../pages/movie'
 import Book from '../pages/book'
 import Status from '../pages/status'
 import Group from '../pages/group'
+import Movieb from '../pages/movieb'
 
 
 Vue.use(Router)
@@ -58,6 +59,11 @@ export default new Router({
       path: '/group',
       name: 'Group',
       component: Group
+    },
+    {
+      path: '/movieb',
+      name: 'Movieb',
+      component: Movieb
     }
   ]
 })

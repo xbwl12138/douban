@@ -1,13 +1,16 @@
 <template>
     <div>
-        <div class="top-box">
-            <top-nav></top-nav>
+        <sou-suo :num="num"></sou-suo>
+        <div v-show="num==1?true:false">
+            <div class="top-box">
+                <top-nav></top-nav>
+            </div>
+            <login-and-not></login-and-not>
+            <zu-fang :arr="arra"></zu-fang>
+            <zu-fang :arr="arrb"></zu-fang>
+            <zu-fang :arr="arrc"></zu-fang>
+            <foot></foot>
         </div>
-        <login-and-not></login-and-not>
-        <zu-fang :arr="arra"></zu-fang>
-        <zu-fang :arr="arrb"></zu-fang>
-        <zu-fang :arr="arrc"></zu-fang>
-        <foot></foot>
     </div>
 </template>
 <script>
@@ -15,12 +18,19 @@ import topNav from '../components/topNav'
 import loginAndNot from '../components/loginAndNot'
 import zuFang from '../components/group/zuFang'
 import foot from '../components/foot'
+import souSuo from '../components/souSuo'
 export default {
     components:{
         topNav,
         loginAndNot,
         zuFang,
-        foot
+        foot,
+        souSuo
+    },
+    computed:{
+        num(){
+            return this.$store.state.num;
+        }
     },
     data () {
         return {

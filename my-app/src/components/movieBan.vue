@@ -1,9 +1,11 @@
 <template>
     <div class="big-box">
         <div class="movie-box" v-for="(v,i) in arr" :key="i">
-            <img :src="v.images.large">
-            <p>{{v.title}}</p>
-            <reta :values="v.rating.average"></reta>
+            <router-link :to="{path:'/movieb',query:{id:v.id}}">
+                <img :src="v.images.large">
+                <p>{{v.title}}</p>
+                <reta :values="v.rating.average"></reta>
+            </router-link>
         </div>
     </div>
 </template>

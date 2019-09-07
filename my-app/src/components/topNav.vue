@@ -13,9 +13,9 @@
 <script>
 export default {
     methods: {
-      fun(){
-          this.$emit("zipao",0);
-      }  
+        fun(){
+            this.$store.commit("funa");
+        }  
     },
     data(){
         return{

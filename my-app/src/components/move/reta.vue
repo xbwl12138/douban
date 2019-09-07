@@ -7,12 +7,12 @@
 export default {
     computed: {
         value(){
-            return (this.values/2).toFixed(1)
+            return parseFloat((this.values/2).toFixed(1));
         }
     },
     props:{
         values:{
-            type:Number,
+            type:[Number,String],
             required:true      
         }
     }

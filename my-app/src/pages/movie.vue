@@ -1,18 +1,22 @@
 <template>
+
     <div>
-        <div class="top-box">
-            <top-nav></top-nav>
+        <sou-suo :num="num"></sou-suo>
+        <div v-show="num==1?true:false">
+            <div class="top-box">
+                <top-nav></top-nav>
+            </div>
+            <ban :v="arr[0]"></ban>
+            <movie-ban :arr="movieArra"></movie-ban>
+            <ban :v="arr[1]"></ban>
+            <movie-ban :arr="movieArrb"></movie-ban>
+            <ban :v="arr[2]"></ban>
+            <movie-ban :arr="movieArrc"></movie-ban>
+            <ban :v="arr[3]"></ban>
+            <banb :arr="arrb"></banb>
+            <class-list></class-list>
+            <foot></foot>
         </div>
-        <ban :v="arr[0]"></ban>
-        <movie-ban :arr="movieArra"></movie-ban>
-        <ban :v="arr[1]"></ban>
-        <movie-ban :arr="movieArrb"></movie-ban>
-        <ban :v="arr[2]"></ban>
-        <movie-ban :arr="movieArrc"></movie-ban>
-        <ban :v="arr[3]"></ban>
-        <banb :arr="arrb"></banb>
-        <class-list></class-list>
-        <foot></foot>
     </div>
 </template>
 <script>
@@ -22,6 +26,7 @@ import banb from '../components/banb'
 import movieBan from '../components/movieBan'
 import classList from '../components/classList'
 import foot from '../components/foot'
+import souSuo from '../components/souSuo'
 export default {
     components:{
         topNav,
@@ -29,7 +34,13 @@ export default {
         banb,
         movieBan,
         classList,
-        foot
+        foot,
+        souSuo
+    },
+    computed:{
+        num(){
+            return this.$store.state.num;
+        }
     },
     data(){
         return {
@@ -65,7 +76,7 @@ export default {
             method:"get",
             url:"/movienav"
         }).then((data)=>{
-            console.log(data.data.faxianhaodianying);
+            // console.log(data.data.faxianhaodianying);
             this.arrb = data.data.faxianhaodianying;
         },(err)=>{
             console.log(err);

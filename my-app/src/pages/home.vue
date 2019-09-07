@@ -1,7 +1,9 @@
 <template>
-    <div>
+<div>
+    <sou-suo :num="num"></sou-suo>
+    <div v-show="num==1?true:false">
         <div>
-            <top-nav @zipao="fuShou"></top-nav>
+            <top-nav></top-nav>
         </div>
         <div class="a-box">
             <a href="#">影院热映</a>
@@ -20,14 +22,17 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 <script>
 import topNav from '../components/topNav'
 import homeClass from '../components/home/homeClass'
+import souSuo from '../components/souSuo'
 export default {
     components:{
         topNav,
-        homeClass
+        homeClass,
+        souSuo
     },
     data(){
         return{
@@ -43,11 +48,11 @@ export default {
             this.obj = data.data.shouye;
         })
     },
-    // methods: {
-    //     fuShou(v){
-    //         this.souBool = v
-    //     }
-    // }
+    computed:{
+        num(){
+            return this.$store.state.num;
+        }
+    }
 }
 </script>
 <style scoped>
