@@ -6,12 +6,12 @@
                 <input type="text" placeholder="邮箱" name="useremail"/>
                 <input :type="imgUrlBool?'password':'text'" placeholder="密码" name="userpass"/>
                 <input type="text" placeholder="用户名" name="userpass"/>
-                <img @click="textAndPass()" :src="imgUrlBool?'../../static/e1.png':'../../static/e2.png'">
+                <img @click="textAndPass()" :src="imgUrlBool?'static/e1.png':'static/e2.png'">
                 <button @click="regFun()">注册</button>
             </div>
             <p>点击「注册」代表你已阅读并同意用户使用协议</p>
             <div class="a-box">
-                <a>下载豆瓣APP</a>
+                <a href="https://www.douban.com/doubanapp/card/get_app?copy_open=1&from=mdouban&client_uri=douban%3A%2F%2Fdouban.com%2Fgroup&model=B&copy=1&page=&channel=m_ad_nav">下载豆瓣APP</a>
             </div>
         </div>
         <div class="reg-box" id="regBoxTwo" v-show="!bool">

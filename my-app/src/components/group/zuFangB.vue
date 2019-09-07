@@ -21,7 +21,7 @@
                 </div>
             </a>
         </div>
-        <p class="">更多相关小组</p>
+        <p class="p-foot">更多相关小组</p>
     </div>
 </template>
 <script>

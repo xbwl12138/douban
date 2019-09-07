@@ -16,6 +16,10 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      redirect:"/home"
+    },
+    {
       path: '/home',
       name: 'Home',
       component: Home
@@ -64,6 +68,10 @@ export default new Router({
       path: '/movieb',
       name: 'Movieb',
       component: Movieb
+    },
+    {
+      path: '*',
+      redirect:"/home"
     }
   ]
 })

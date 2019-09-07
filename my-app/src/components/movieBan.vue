@@ -45,5 +45,7 @@ export default {
         text-align: center;
         line-height: .16rem;
         padding:.2rem 0;
+        color:#000;
+        font-weight:500;    
     }
 </style>

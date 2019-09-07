@@ -12,7 +12,7 @@
                         <i>人评价</i>
                     </div>
                 </div>
-                <p>2019/剧情/爱情/战争/马国栋/李鹏波/成龙/王力宏/茅台/妹爷/中国大陆</p>
+                <p>{{arr.year}}/<span v-for="(v,i) in arr.genres" :key="i">{{v}}/</span><span v-for="(v,i) in arr.casts" :key="i">{{v.name}}/</span>{{arr.subtype}}</p>
                 <router-link to="/home">用APP查看{{arr.casts[0].name}}资料</router-link>
             </div>
             <div class="img-box">
@@ -27,7 +27,7 @@
         <div class="deta-box">
             <p>{{arr.title}}<span>的简介</span></p>
             <span id="spanId"></span>
-            <span>{{txt}}
+            <span>简介暂无，如需访问，请点击连接<a href='http://www.baidu.com'>链接</a>
                 <b @click="funb()">(展开)</b>
             </span>
         </div>
@@ -39,8 +39,6 @@
             <p>{{arr.title}}<span> 演职人员的图片</span></p>
             <!-- <movie-ban :arr="arr"></movie-ban> -->
             <div class="img-nav">
-                <!-- <img :src="arr.casts[0].avatars.small"> -->
-                <!-- <img :src="arr.casts[1].avatars.small"> -->
                 <img v-for="(v,i) in arr.casts" :src="v.avatars.small" :key="i">
             </div>
         </div>
@@ -53,17 +51,29 @@
         <ping-lun></ping-lun>
         <p class="ping-lun">显示更多评论</p>
         <div class="guang-gao">
-            <img src="../../static/bm.jpg" title="我是广告">
+            <img src="../../static/bm.jpg">
         </div>
         <div class="imgs-box">
             <p><span>关于 </span>{{arr.title}}<span> 的问答</span></p>
             <div class="wen-da">
-                <p>大家为什们对国产片这么苛刻？</p>
-                <span>36个回答</span>
+                <p>大家对演员王超的喜爱程度为何如此之高？</p>
+                <span>2.2万个回答</span>
             </div>
             <div class="wen-da">
-                <p>大家对演员马国栋的辱骂为何如此之高？</p>
-                <span>1万个回答</span>
+                <p>篮球天才王飞转战演艺圈会怎样？</p>
+                <span>3.2万个回答</span>
+            </div>
+            <div class="wen-da">
+                <p>演员刘超转战NBA</p>
+                <span>2万个回答</span>
+            </div>
+            <div class="wen-da">
+                <p>韩国欧巴马文周进军国内演艺界</p>
+                <span>1.9万个回答</span>
+            </div>
+            <div class="wen-da">
+                <p>考研最高分被师大一米姓学生夺取</p>
+                <span>1.8万个回答</span>
             </div>
         </div>
         <p class="ping-lun">显示更多问答</p>
@@ -89,7 +99,6 @@ export default {
     },
     data(){
         return {
-            txt:"如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如果如",
             arrb:["推荐的豆列"],
             arrc:[]
         }
